@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Variáveis de configuração
+PENDRIVE_DEV=$(lsblk -o NAME,SIZE,TYPE,MOUNTPOINT | awk '$2 == "8G" && $3 == "disk" && $4 == "" {print $1}')
 ALPINE_ISO="alpine-linux-extended.iso"
 PROFILE_FILE="/mnt/profile.txt"
 
@@ -9,6 +10,12 @@ get_git_address() {
     read -p "Informe o endereço GIT para download da imagem do MiçangáriOS: " GIT_ADDRESS
     echo "$GIT_ADDRESS"
 }
+
+# Verifica se o pendrive foi identificado corretamente
+read -p "O pendrive foi identificado como ${PENDRIVE_DEV}. Deseja prosseguir? (s/n): " choice
+if [ "$choice" != "s" ]; then
+    read -p "Informe o caminho completo para o dispositivo do pendrive: " PENDRIVE_DEV
+fi
 
 # Monta a partição raiz do pendrive
 mount "${PENDRIVE_DEV}1" /mnt
@@ -60,3 +67,7 @@ echo "Baixando a imagem do MiçangáriOS do endereço GIT: $GIT_ADDRESS"
 
 # Desmonta a partição raiz do pendrive
 umount /mnt
+
+# Executa o MiçangáriOS diretamente do GIT e acessa a partição de armazenamento persistente
+# Coloque aqui o código para executar o MiçangáriOS do GIT e acessar a partição de armazenamento persistente
+
