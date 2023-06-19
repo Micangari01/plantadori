@@ -100,8 +100,3 @@ umount /mnt
 
 # Executa o MiçangáriOS diretamente do Git e acessa a partição de armazenamento persistente
 # Coloque aqui o código para executar o MiçangáriOS do Git e acessar a partição de armazenamento persistente
-
-
-# Executa o MiçangáriOS diretamente do GIT e acessa a partição de armazenamento persistente
-# Coloque aqui o código para executar o MiçangáriOS do GIT e acessar a partição de armazenamento persistente
-
