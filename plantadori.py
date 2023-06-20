@@ -29,11 +29,11 @@ class PlantadoriGUI(QWidget):
 
         if output_file_path:
             os.system('git clone https://github.com/Micangari01/plantadori.git')
-            os.chdir('plantadori')
-            os.system('./plantadori.sh')
-            os.system(f'genisoimage -o {output_file_path} plantadori.sh')
+            os.chdir('micangari01')
+            os.system('./micangari01.sh')
+            os.system(f'genisoimage -o {output_file_path} micangari01.sh')
             os.chdir('..')
-            os.system('rm -rf plantadori')
+            os.system('rm -rf micangari01')
 
             self.label.setText('Imagem ISO criada com sucesso!')
 
@@ -54,8 +54,8 @@ class PlantadoriGUI(QWidget):
                 os.system(f'git clone {repo_address}')
                 repo_name = os.path.basename(repo_address).split('.git')[0]
                 os.chdir(repo_name)
-                os.system('./plantadori.sh')
-                os.system(f'genisoimage -o {output_file_path} plantadori.sh')
+                os.system('./micangari01.sh')
+                os.system(f'genisoimage -o {output_file_path} micangari01.sh')
                 os.chdir('..')
                 os.system(f'rm -rf {repo_name}')
 
